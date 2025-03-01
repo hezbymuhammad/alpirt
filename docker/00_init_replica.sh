@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ -z "$(ls -A '/var/lib/postgresql/data')" ]; then
 	echo 'Starting backup...'
 	until pg_basebackup --pgdata=/var/lib/postgresql/data -R --slot=replication_slot --host=postgres_primary --port=5432 -X stream -P --write-recovery-conf; do

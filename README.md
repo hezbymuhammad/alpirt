@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Requirement
 
-Things you may want to cover:
+Docker 27.5.1
+Docker Compose v2.32.4
 
-* Ruby version
+## Setup
 
-* System dependencies
+Run below script
 
-* Configuration
+```bash
+docker compose up -d postgres_primary postgres_replica
+docker compose run tripla bash -c "bundle exec rails db:create:primary"
+docker compose run tripla bash -c "bundle exec rails db:migrate:primary"
+docker compose run tripla bash -c "bundle exec rails db:seed"
+docker compose run tripla bash -c "bundle exec rails db:create RAILS_ENV=test"
+docker compose run tripla bash -c "bundle exec rails db:migrate RAILS_ENV=test"
+```
 
-* Database creation
+## Run
 
-* Database initialization
+Your server will run at http://localhost:3000
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```bash
+docker compose up tripla
+```

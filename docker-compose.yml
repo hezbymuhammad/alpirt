@@ -49,7 +49,7 @@ services:
 
   tripla:
     build: .
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: bash docker/00_init_app.sh
     ports:
       - 3000:3000
     environment:
