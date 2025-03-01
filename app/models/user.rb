@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_many :sleep_histories
 
-  has_many :follower_circles, class_name: 'Circle', foreign_key: 'following_id', dependent: :destroy
-  has_many :following_circles, class_name: 'Circle', foreign_key: 'user_id', dependent: :destroy
+  has_many :follower_circles, class_name: "Circle", foreign_key: "following_id", dependent: :destroy
+  has_many :following_circles, class_name: "Circle", foreign_key: "user_id", dependent: :destroy
   has_many :followers, through: :follower_circles, source: :user
   has_many :followings, through: :following_circles, source: :following
 
@@ -30,5 +30,4 @@ class User < ApplicationRecord
   def following?(user)
     following_circles.where(following: user).exists?
   end
-
 end
