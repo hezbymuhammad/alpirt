@@ -12,4 +12,13 @@ RSpec.describe Circle, type: :model do
       expect(described_class.accepted).to eq(accepted_circles)
     end
   end
+
+  describe "#validate_following" do
+    it "cannot self follow" do
+      user = create :user
+      circle = described_class.new user: user, following: user
+
+      expect(circle).to_not be_valid
+    end
+  end
 end
