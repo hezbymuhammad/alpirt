@@ -49,6 +49,7 @@ group :development, :test do
   gem "faker"
   gem "rspec-rails"
   gem "timecop"
+  gem "byebug"
 end
 
 gem "pg", "~> 1.5"
