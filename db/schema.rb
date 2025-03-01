@@ -10,13 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_01_031004) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_01_032600) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
+
+  create_table "circles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "following_id", null: false
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["following_id"], name: "index_circles_on_following_id"
+    t.index ["user_id", "following_id"], name: "index_circles_on_user_id_and_following_id", unique: true
+    t.index ["user_id"], name: "index_circles_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_foreign_key "circles", "users"
+  add_foreign_key "circles", "users", column: "following_id"
 end
