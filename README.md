@@ -3,7 +3,18 @@
 ## Requirement
 
 Docker 27.5.1
+
 Docker Compose v2.32.4
+
+## Stack
+
+Ruby 3.4.2
+
+Rails 8.0.1
+
+Postgres 14 primary-replica
+
+Redis cache
 
 ## Setup
 
@@ -25,3 +36,7 @@ Your server will run at http://localhost:3000
 ```bash
 docker compose up tripla
 ```
+
+## Postman
+
+v2.1 collection [here](https://github.com/hezbymuhammad/alpirt/raw/refs/heads/main/Tripla.postman_collection.json)
