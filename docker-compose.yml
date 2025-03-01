@@ -47,6 +47,10 @@ services:
       - ./docker/00_init_replica.sh:/00_init_replica.sh
       - pgdata-replica:/var/lib/postgresql/data
 
+  redis:
+    image: redis:alpine
+    restart: always
+
   tripla:
     build: .
     command: bash docker/00_init_app.sh
@@ -61,6 +65,7 @@ services:
       DB_REPLICA_USER: user
       DB_REPLICA_PASSWORD: password
       DB_REPLICA_PORT: 5432
+      REDIS_URL: redis://redis
     volumes:
       - .:/app
       - vendor:/vendor
