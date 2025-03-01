@@ -9,17 +9,17 @@ class User < ApplicationRecord
   def sleep(sleep_time = DateTime.current)
     sleep_histories.create(
       clock_in: sleep_time
-    )
+    ).valid?
   end
 
   def wake_up(wake_up_time = DateTime.current)
-    sleep_histories.incompleted.last.update(
+    sleep_histories.incompleted.last&.update(
       clock_out: wake_up_time
     )
   end
 
   def follow(user)
-    following_circles.find_or_create_by(following: user)
+    following_circles.find_or_create_by(following: user).valid?
   end
 
   def unfollow(user)

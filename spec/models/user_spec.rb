@@ -6,18 +6,20 @@ RSpec.describe User, type: :model do
 
   describe "#sleep" do
     it "create sleep record with default value" do
-      user.sleep
+      ret = user.sleep
 
       sleep_history = user.reload.sleep_histories.last
       expect(sleep_history).to be_present
+      expect(ret).to be_truthy
     end
 
     it "create sleep record with param" do
       time = Faker::Time.backward(days: 14, period: :evening)
-      user.sleep time
+      ret = user.sleep time
 
       sleep_history = user.reload.sleep_histories.last
       expect(sleep_history.clock_in).to eq(time)
+      expect(ret).to be_truthy
     end
   end
 
@@ -37,6 +39,13 @@ RSpec.describe User, type: :model do
 
       sleep_history = user.reload.sleep_histories.last
       expect(sleep_history.clock_out).to eq(time)
+    end
+
+    it "not create sleep record when no prev records" do
+      user.wake_up
+
+      sleep_history = user.reload.sleep_histories.last
+      expect(sleep_history).to be_blank
     end
   end
 
