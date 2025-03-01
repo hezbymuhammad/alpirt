@@ -16,6 +16,14 @@ Rails.application.routes.draw do
             delete :unfollow
           end
         end
+
+        resources :sleep_histories, only: [ :index ] do
+          collection do
+            post :sleep
+            post :wake_up
+            get :following
+          end
+        end
       end
     end
   end

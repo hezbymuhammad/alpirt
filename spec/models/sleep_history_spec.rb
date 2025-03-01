@@ -18,6 +18,26 @@ RSpec.describe SleepHistory, type: :model do
     end
   end
 
+  describe ".past_week" do
+    it "return past week history" do
+      date = Faker::Date.between(from: 5.days.ago, to: Date.today)
+      old_date = Faker::Date.between(from: 30.days.ago, to: 15.days.ago)
+      histories_within_a_week = create_list(:sleep_history, 2, clock_in: date, clock_out: date + 1.day)
+      create_list(:sleep_history, 10, clock_in: old_date, clock_out: old_date + 1.day)
+
+      expect(described_class.past_week).to eq(histories_within_a_week)
+    end
+  end
+
+  describe ".for_users" do
+    it "return histories for users" do
+      users = completed.map &:user
+      create_list(:sleep_history, 2, :completed)
+
+      expect(described_class.for_users(users)).to eq(completed)
+    end
+  end
+
   describe "validations" do
     it "validate presence of clock in" do
       rec = described_class.new
