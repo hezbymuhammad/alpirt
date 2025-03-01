@@ -4,12 +4,13 @@ class Api::V1::CirclesController < ApplicationController
 
   # GET /api/v1/users/:user_id/circles
   def index
-    render json: @user.followings, each_serializer: UserSerializer, status: :ok
+    render json: followings, each_serializer: UserSerializer, adapter: :json_api, status: :ok
   end
 
   # PATCH /api/v1/users/:user_id/circles/follow
   def follow
     if @user.follow(@target_user)
+      Rails.cache.delete("followings##{@user.id}")
       render json: { message: "ok" }, status: 200
     else
       render json: { message: "failed" }, status: 400
@@ -19,6 +20,7 @@ class Api::V1::CirclesController < ApplicationController
   # DELETE /api/v1/users/:user_id/circles/unfollow
   def unfollow
     if @user.unfollow(@target_user)
+      Rails.cache.delete("followings##{@user.id}")
       render json: { message: "ok" }, status: 200
     else
       render json: { message: "failed" }, status: 400
@@ -26,6 +28,12 @@ class Api::V1::CirclesController < ApplicationController
   end
 
   private
+
+    def followings
+      Rails.cache.fetch("followings##{@user.id}", expires_in: 12.hours) do
+        @user.followings
+      end
+    end
 
     def set_user
       @user = User.find_by_id params[:user_id]

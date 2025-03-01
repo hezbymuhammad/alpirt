@@ -1,7 +1,7 @@
 class Api::V1::UsersController < ApplicationController
   # GET /api/v1/users
   def index
-    render json: users, each_serializer: UserSerializer, status: :ok
+    render json: users, each_serializer: UserSerializer, adapter: :json_api, status: :ok
   end
 
   private
