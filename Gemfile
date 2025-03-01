@@ -50,3 +50,5 @@ group :development, :test do
   gem "rspec-rails"
   gem "timecop"
 end
+
+gem "pg", "~> 1.5"
