@@ -1,0 +1,722 @@
+{
+	"info": {
+		"_postman_id": "7630eb5b-ca11-4028-b6e5-48c0305e949c",
+		"name": "Tripla",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8670007"
+	},
+	"item": [
+		{
+			"name": "Get users",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Follow user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles/follow",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"circles",
+						"follow"
+					],
+					"query": [
+						{
+							"key": "target_user_id",
+							"value": "2",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User 1 follow user 2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles/follow?target_user_id=2",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"circles",
+								"follow"
+							],
+							"query": [
+								{
+									"key": "target_user_id",
+									"value": "2"
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "User 1 follow user 3",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles/follow?target_user_id=3",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"circles",
+								"follow"
+							],
+							"query": [
+								{
+									"key": "target_user_id",
+									"value": "3"
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Unfollow user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles/unfollow",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"circles",
+						"unfollow"
+					],
+					"query": [
+						{
+							"key": "target_user_id",
+							"value": "4",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User 1 unfollow user 2",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles/unfollow?target_user_id=2",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"circles",
+								"unfollow"
+							],
+							"query": [
+								{
+									"key": "target_user_id",
+									"value": "2"
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "User 1 unfollow user 3",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles/unfollow?target_user_id=3",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"circles",
+								"unfollow"
+							],
+							"query": [
+								{
+									"key": "target_user_id",
+									"value": "3"
+								}
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get user followings",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"circles"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get user 2 followings",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"circles"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Get user 3 followings",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/circles",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"circles"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get user sleep history",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"sleep_histories"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get user 1 sleep history",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Get user 2 sleep history",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Post user sleep",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/sleep",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"sleep_histories",
+						"sleep"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post user 1 sleep",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/sleep",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories",
+								"sleep"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Post user 2 sleep",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/sleep",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories",
+								"sleep"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Post user wake up",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/wake_up",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"sleep_histories",
+						"wake_up"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Post user 1 wake up",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/wake_up",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories",
+								"wake_up"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Post user 2 wake up",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/wake_up",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories",
+								"wake_up"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Get following sleep history",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/following",
+					"host": [
+						"{{tripla-base-url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						":user_id",
+						"sleep_histories",
+						"following"
+					],
+					"variable": [
+						{
+							"key": "user_id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get following sleep history for user 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/following",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories",
+								"following"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Get following sleep history for user 2",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{tripla-base-url}}/api/v1/users/:user_id/sleep_histories/following",
+							"host": [
+								"{{tripla-base-url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								":user_id",
+								"sleep_histories",
+								"following"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}
