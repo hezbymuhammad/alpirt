@@ -8,6 +8,6 @@ class CreateCircles < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :circles, [:user_id, :following_id], unique: true
+    add_index :circles, [ :user_id, :following_id ], unique: true
   end
 end

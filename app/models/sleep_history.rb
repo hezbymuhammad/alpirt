@@ -13,27 +13,27 @@ class SleepHistory < ApplicationRecord
 
   private
 
-  def validate_sleep_clock
-    if clock_out < clock_in
-      return errors.add(:clock_out_time, "clock out must be after clock in")
+    def validate_sleep_clock
+      if clock_out < clock_in
+        errors.add(:clock_out_time, "clock out must be after clock in")
+      end
     end
-  end
 
-  def validate_last_sleep_clock
-    if SleepHistory.incompleted.present?
-      return errors.add(:clock_out_time, "please clock out previous session first")
+    def validate_last_sleep_clock
+      if SleepHistory.incompleted.present?
+        errors.add(:clock_out_time, "please clock out previous session first")
+      end
     end
-  end
 
-  def clock_out_blank?
-    clock_out.blank?
-  end
+    def clock_out_blank?
+      clock_out.blank?
+    end
 
-  def clock_out_present?
-    clock_out.present?
-  end
+    def clock_out_present?
+      clock_out.present?
+    end
 
-  def calculate_duration
-    self.duration = (clock_out - clock_in).floor
-  end
+    def calculate_duration
+      self.duration = (clock_out - clock_in).floor
+    end
 end

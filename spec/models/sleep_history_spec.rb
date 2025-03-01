@@ -67,5 +67,4 @@ RSpec.describe SleepHistory, type: :model do
       expect(rec).to_not be_valid
     end
   end
-
 end

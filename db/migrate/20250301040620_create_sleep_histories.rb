@@ -9,7 +9,7 @@ class CreateSleepHistories < ActiveRecord::Migration[8.0]
       t.timestamps
     end
 
-    add_index :sleep_histories, [:user_id, :clock_in, :duration]
-    add_index :sleep_histories, [:user_id, :created_at]
+    add_index :sleep_histories, [ :user_id, :clock_in, :duration ]
+    add_index :sleep_histories, [ :user_id, :created_at ]
   end
 end

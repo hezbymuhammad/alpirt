@@ -53,5 +53,5 @@ group :development, :test do
 end
 
 gem "pg", "~> 1.5"
-gem 'jsonapi-serializer'
-gem 'kaminari'
+gem "jsonapi-serializer"
+gem "kaminari"
