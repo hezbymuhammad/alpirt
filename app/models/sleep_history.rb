@@ -11,7 +11,7 @@ class SleepHistory < ApplicationRecord
   scope :incompleted, -> { where(clock_out: nil) }
   scope :completed, -> { where.not(clock_out: nil) }
   scope :past_week, -> { where(clock_in: 1.week.ago.beginning_of_day..Time.current) }
-  scope :for_users, -> (users) { where(user: users) }
+  scope :for_users, ->(users) { where(user: users) }
 
   private
 

@@ -28,7 +28,7 @@ class Api::V1::SleepHistoriesController < ApplicationController
 
   # GET /api/v1/users/:user_id/sleep_histories/following
   def following
-    render json: @following_histories, each_serializer: SleepHistorySerializer, include: ['user'], status: :ok
+    render json: @following_histories, each_serializer: SleepHistorySerializer, include: [ "user" ], status: :ok
   end
 
   private

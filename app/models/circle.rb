@@ -9,10 +9,10 @@ class Circle < ApplicationRecord
 
   private
 
-  def validate_following
+    def validate_following
       if user == following
         errors.add(:user, "cannot self follow")
         errors.add(:following, "cannot self follow")
       end
-  end
+    end
 end

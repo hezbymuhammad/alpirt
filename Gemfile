@@ -55,5 +55,5 @@ end
 gem "pg", "~> 1.5"
 gem "jsonapi-serializer"
 gem "kaminari"
-gem 'redis'
-gem 'hiredis'
+gem "redis"
+gem "hiredis"
